@@ -8,6 +8,6 @@ x11.createClient(function(err, display) {
 
     var ewmh = new EWMH(display.client, display.screen[0].root);
     ewmh.on('ActiveWindowChange', function(wid) {
-    	console.log('new active window:', wid);
+        console.log('new active window:', wid);
     });
 });
