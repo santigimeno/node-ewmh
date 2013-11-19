@@ -12,9 +12,11 @@
     },
     "devDependencies": {
         "mocha": "~1.13.0",
-        "x11": "~0.4.0",
         "should": "~1.3.0"
     },
+    "peerDependencies": {
+         "x11": ">=0.6"
+    }
     "keywords": [
         "EWMH",
         "ewmh",
