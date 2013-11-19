@@ -44,4 +44,4 @@ This is a work in progress.
 
 \_NET\_WM\_PID - emwh.set_pid(windowId, cb)
 
-\WM\_CLIENT\_MACHINE - emwh.set_hostname(windowId, cb)
+WM\_CLIENT\_MACHINE - emwh.set_hostname(windowId, cb)
