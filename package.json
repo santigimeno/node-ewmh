@@ -16,7 +16,7 @@
     },
     "peerDependencies": {
          "x11": ">=0.6"
-    }
+    },
     "keywords": [
         "EWMH",
         "ewmh",
