@@ -61,3 +61,5 @@ Events are generated whenever a client requests the modification of a HINT.
 **Events - Hint relationship**
 
 *ActiveWindow* - \_NET\_ACTIVE\_WINDOW
+
+*CurrentDesktop* - \_NET\_CURRENT\_DESKTOP
