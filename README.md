@@ -42,4 +42,6 @@ This is a work in progress.
 
 \_NET\_CLIENT\_LIST - ewmh.update\_window\_list
 
+\_NET\_WM\_PID - emwh.set_pid(windowId, cb)
 
+WM\_CLIENT\_MACHINE - emwh.set_hostname(windowId, cb)
