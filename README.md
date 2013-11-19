@@ -51,3 +51,13 @@ WM\_CLIENT\_MACHINE - emwh.set_hostname(windowId, cb)
 \_NET\_ACTIVE\_WINDOW - ewmh.set_active_window(windowId, cb)
 
 \_NET\_WM\_CM\_S0 - emwh.set_composite_manager_owner(windowId, screenNo, cb)
+=======
+
+EVENTS
+=======
+
+Events are generated whenever a client requests the modification of a HINT.
+
+**Events - Hint relationship**
+
+*ActiveWindow* - \_NET\_ACTIVE\_WINDOW
