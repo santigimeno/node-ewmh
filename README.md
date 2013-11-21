@@ -51,3 +51,4 @@ WM\_CLIENT\_MACHINE - emwh.set_hostname(windowId, cb)
 \_NET\_ACTIVE\_WINDOW - ewmh.set_active_window(windowId, cb)
 
 \_NET\_WM\_CM\_S0 - emwh.set_composite_manager_owner(windowId, screenNo, cb)
+\_NET\_SUPPORTING\_WM\_CHECK - emwh.set_window_manager_owner(windowId, wmName, wmClass, cb)
