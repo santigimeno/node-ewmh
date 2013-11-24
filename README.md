@@ -14,20 +14,29 @@ npm install x11 ewmh
 
 ```
 var x11 = require('x11');
-var EWMH = require('ewmh');
+var ewmh_mod = require('ewmh');
 
 x11.createClient(function(err, display) {
     if (err) {
         throw err;
     }
 
-    var ewmh = new EWMH(display.client, display.screen[0].root);
-    ewmh.set_number_of_desktops(4, function(err) {
-    	if (err) {
-    		throw err;
-    	}
+    ewmh.on('CurrentDesktop', function(c) {
+        console.log('Request to change current desktop to: ' + c);
+    });
 
-    	ewmh.set_current_desktop(1);
+    ewmh_mod.createEWMH(display.client, display.screen[0].root, function(err, ewmh) {
+        if (err) {
+            throw err;
+        }
+
+        ewmh.set_number_of_desktops(4, function(err) {
+            if (err) {
+                throw err;
+            }
+
+            ewmh.set_current_desktop(1);
+        });
     });
 });
 ```
