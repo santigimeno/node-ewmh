@@ -21,14 +21,14 @@ x11.createClient(function(err, display) {
         throw err;
     }
 
-    ewmh.on('CurrentDesktop', function(c) {
-        console.log('Request to change current desktop to: ' + c);
-    });
-
     ewmh_mod.createEWMH(display.client, display.screen[0].root, function(err, ewmh) {
         if (err) {
             throw err;
         }
+
+        ewmh.on('CurrentDesktop', function(c) {
+            console.log('Request to change current desktop to: ' + c);
+        });
 
         ewmh.set_number_of_desktops(4, function(err) {
             if (err) {
