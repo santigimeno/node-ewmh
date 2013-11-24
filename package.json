@@ -4,7 +4,7 @@
     "description": "Implementation of the Extended Window Manager Hints (EWMH)",
     "main": "index.js",
     "scripts": {
-        "test": "grunt"
+        "test": "./node_modules/.bin/mocha"
     },
     "repository": {
         "type": "git",
@@ -15,7 +15,8 @@
     },
     "devDependencies": {
         "mocha": "~1.13.0",
-        "should": "~1.3.0"
+        "should": "~1.3.0",
+        "x11": ">=0.6"
     },
     "peerDependencies": {
          "x11": ">=0.6"
