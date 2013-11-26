@@ -16,7 +16,7 @@
     "devDependencies": {
         "mocha": "~1.13.0",
         "should": "~1.3.0",
-        "x11": ">=0.6"
+        "x11": ">=0.7"
     },
     "peerDependencies": {
          "x11": ">=0.7"
