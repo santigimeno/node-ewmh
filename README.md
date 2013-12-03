@@ -68,3 +68,7 @@ Events are generated whenever a client requests the modification of a HINT.
 *ActiveWindow* - \_NET\_ACTIVE\_WINDOW
 
 *CurrentDesktop* - \_NET\_CURRENT\_DESKTOP
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/santigimeno/node-ewmh/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
