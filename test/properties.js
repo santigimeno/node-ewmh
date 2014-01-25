@@ -107,6 +107,22 @@ describe('setting properties...', function() {
         this.ewmh.update_window_list([ this.wid1, this.wid2, this.wid3 ]);
     });
 
+    it('update_window_list should set _NET_CLIENT_LIST_STACKING correctly', function(done) {
+        var self = this;
+        this.X2.once('event', function(ev) {
+            ev.atom.should.equal(self.X1.atoms._NET_CLIENT_LIST_STACKING);
+            self.X1.GetProperty(0, self.root, ev.atom, self.X1.atoms.WINDOW, 0, 1000000000, function(err, prop) {
+                should.not.exist(err);
+                var data = decoder.decode('WINDOW', prop.data);
+                data.should.eql([ self.wid1, self.wid3, self.wid1 ]);
+                done();
+            });
+
+        });
+
+        this.ewmh.update_window_list_stacking([ this.wid1, this.wid3, this.wid1 ]);
+    });
+
     it('set_pid should set _NET_WM_PID correctly', function(done) {
         var self = this;
         this.X2.once('event', function(ev) {

@@ -46,7 +46,9 @@ This is a work in progress.
 
 \_NET\_CURRENT\_DESKTOP - ewmh.set\_current\_desktop
 
-\_NET\_CLIENT\_LIST - ewmh.update\_window\_list
+\_NET\_CLIENT\_LIST - ewmh.update\_window\_list(list, cb)
+
+\_NET\_CLIENT\_LIST\_STACKING - ewmh.update_window_list_stacking(list_stacking, cb)
 
 \_NET\_WM\_PID - emwh.set_pid(windowId, cb)
 
