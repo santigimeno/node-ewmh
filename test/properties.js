@@ -2,7 +2,7 @@ var should = require('should');
 var x11 = require('x11');
 var async = require('async');
 var EVMW = require('../lib/ewmh');
-var decoder = require('x11-prop').decoder;
+var get_property = require('x11-prop').get_property;
 var os = require('os');
 
 describe('setting properties...', function() {
@@ -38,9 +38,8 @@ describe('setting properties...', function() {
         var atoms = [ '_NET_WM_ACTION_MOVE', '_NET_WM_ACTION_RESIZE', '_NET_WM_ACTION_MINIMIZE' ];
         this.X2.once('event', function(ev) {
             ev.atom.should.equal(self.X1.atoms._NET_SUPPORTED);
-            self.X1.GetProperty(0, self.root, ev.atom, self.X1.atoms.ATOM, 0, 1000000000, function(err, prop) {
+            get_property(self.X1, self.root, ev.atom, function(err, data) {
                 should.not.exist(err);
-                var data = decoder.decode('ATOM', prop.data);
                 async.map(
                     atoms,
                     function(prop, cb) {
@@ -63,9 +62,8 @@ describe('setting properties...', function() {
         var self = this;
         this.X2.once('event', function(ev) {
             ev.atom.should.equal(self.X1.atoms._NET_NUMBER_OF_DESKTOPS);
-            self.X1.GetProperty(0, self.root, ev.atom, self.X1.atoms.CARDINAL, 0, 1000000000, function(err, prop) {
+            get_property(self.X1, self.root, ev.atom, function(err, data) {
                 should.not.exist(err);
-                var data = decoder.decode('CARDINAL', prop.data);
                 data.should.eql([ 2 ]);
                 done();
             });
@@ -79,9 +77,8 @@ describe('setting properties...', function() {
         var self = this;
         this.X2.once('event', function(ev) {
             ev.atom.should.equal(self.X1.atoms._NET_CURRENT_DESKTOP);
-            self.X1.GetProperty(0, self.root, ev.atom, self.X1.atoms.CARDINAL, 0, 1000000000, function(err, prop) {
+            get_property(self.X1, self.root, ev.atom, function(err, data) {
                 should.not.exist(err);
-                var data = decoder.decode('CARDINAL', prop.data);
                 data.should.eql([ 1 ]);
                 done();
             });
@@ -95,9 +92,8 @@ describe('setting properties...', function() {
         var self = this;
         this.X2.once('event', function(ev) {
             ev.atom.should.equal(self.X1.atoms._NET_CLIENT_LIST);
-            self.X1.GetProperty(0, self.root, ev.atom, self.X1.atoms.WINDOW, 0, 1000000000, function(err, prop) {
+            get_property(self.X1, self.root, ev.atom, function(err, data) {
                 should.not.exist(err);
-                var data = decoder.decode('WINDOW', prop.data);
                 data.should.eql([ self.wid1, self.wid2, self.wid3 ]);
                 done();
             });
@@ -111,9 +107,8 @@ describe('setting properties...', function() {
         var self = this;
         this.X2.once('event', function(ev) {
             ev.atom.should.equal(self.X1.atoms._NET_CLIENT_LIST_STACKING);
-            self.X1.GetProperty(0, self.root, ev.atom, self.X1.atoms.WINDOW, 0, 1000000000, function(err, prop) {
+            get_property(self.X1, self.root, ev.atom, function(err, data) {
                 should.not.exist(err);
-                var data = decoder.decode('WINDOW', prop.data);
                 data.should.eql([ self.wid1, self.wid3, self.wid1 ]);
                 done();
             });
@@ -127,9 +122,8 @@ describe('setting properties...', function() {
         var self = this;
         this.X2.once('event', function(ev) {
             ev.atom.should.equal(self.X1.atoms._NET_WM_PID);
-            self.X1.GetProperty(0, self.root, ev.atom, self.X1.atoms.CARDINAL, 0, 1000000000, function(err, prop) {
+            get_property(self.X1, self.root, ev.atom, function(err, data) {
                 should.not.exist(err);
-                var data = decoder.decode('CARDINAL', prop.data);
                 data.should.eql([ process.pid ]);
                 done();
             });
@@ -143,9 +137,8 @@ describe('setting properties...', function() {
         var self = this;
         this.X2.once('event', function(ev) {
             ev.atom.should.equal(self.X1.atoms.WM_CLIENT_MACHINE);
-            self.X1.GetProperty(0, self.root, ev.atom, self.X1.atoms.STRING, 0, 1000000000, function(err, prop) {
+            get_property(self.X1, self.root, ev.atom, function(err, data) {
                 should.not.exist(err);
-                var data = decoder.decode('STRING', prop.data);
                 data.toString().should.eql(os.hostname());
                 done();
             });
@@ -159,9 +152,8 @@ describe('setting properties...', function() {
         var self = this;
         this.X2.once('event', function(ev) {
             ev.atom.should.equal(self.X1.atoms._NET_ACTIVE_WINDOW);
-            self.X1.GetProperty(0, self.root, ev.atom, self.X1.atoms.WINDOW, 0, 1000000000, function(err, prop) {
+            get_property(self.X1, self.root, ev.atom, function(err, data) {
                 should.not.exist(err);
-                var data = decoder.decode('WINDOW', prop.data);
                 data.should.eql([ self.wid2 ]);
                 done();
             });
