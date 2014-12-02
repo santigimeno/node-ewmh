@@ -58,6 +58,8 @@ WM\_CLIENT\_MACHINE - emwh.set_hostname(windowId, cb)
 
 \_NET\_WM\_CM\_S0 - emwh.set_composite_manager_owner(windowId, screenNo, cb)
 
+\_NET\_CLOSE\_WINDOW - ewmh.close_window(windowId, delete_protocol);
+
 =======
 
 EVENTS
@@ -71,6 +73,5 @@ Events are generated whenever a client requests the modification of a HINT.
 
 *CurrentDesktop* - \_NET\_CURRENT\_DESKTOP
 
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/santigimeno/node-ewmh/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+*Close Window* - \_NET\_CLOSE\_WINDOW
 
