@@ -12,7 +12,7 @@
     },
     "dependencies": {
         "async": "~0.2.9",
-        "x11-prop": "~0.1.0"
+        "x11-prop": "~0.4.2"
     },
     "devDependencies": {
         "mocha": "~1.13.0",
