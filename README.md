@@ -60,6 +60,8 @@ WM\_CLIENT\_MACHINE - emwh.set_hostname(windowId, cb)
 
 \_NET\_CLOSE\_WINDOW - ewmh.close_window(windowId, delete_protocol);
 
+\_NET\_WM\_DESKTOP - ewmh.set_desktop(windowId, desktop, cb);
+
 =======
 
 EVENTS
@@ -71,7 +73,9 @@ Events are generated whenever a client requests the modification of a HINT.
 
 *ActiveWindow* - \_NET\_ACTIVE\_WINDOW
 
+*Close Window* - \_NET\_CLOSE\_WINDOW
+
 *CurrentDesktop* - \_NET\_CURRENT\_DESKTOP
 
-*Close Window* - \_NET\_CLOSE\_WINDOW
+*Desktop* - \_NET\_WM\_DESKTOP
 
