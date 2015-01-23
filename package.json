@@ -1,6 +1,6 @@
 {
     "name": "ewmh",
-    "version": "0.2.3",
+    "version": "0.3.0",
     "description": "Implementation of the Extended Window Manager Hints (EWMH)",
     "main": "index.js",
     "scripts": {
