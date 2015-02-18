@@ -28,16 +28,18 @@ describe('EWMH creation', function() {
 
     });
 
-    it('should emit error in case another wm is listening for SubstructureRedirect', function(done) {
+    it('should emit error in case another wm is listening for SubstructureRedirect  ', function(done) {
         var self = this;
         this.X2.ChangeWindowAttributes(this.root, { eventMask: this.X2.eventMask.SubstructureRedirect });
-        var ewmh = new EVMW(this.X1, this.root);
-        ewmh.once('error', function(err) {
-            should.exist(err);
-            err.x11_error.message.should.equal('Bad access');
-            self.X2.ChangeWindowAttributes(self.root, { eventMask: 0 });
-            done();
-        });
+        setTimeout(function() {
+            var ewmh = new EVMW(self.X1, self.root);
+            ewmh.once('error', function(err) {
+                should.exist(err);
+                err.x11_error.message.should.equal('Bad access');
+                self.X2.ChangeWindowAttributes(self.root, { eventMask: 0 });
+                done();
+            });
+        }, 200);
     });
 
     it('should start listening for SubstructureRedirect events in root if no other wm', function(done) {
